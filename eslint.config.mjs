@@ -4,12 +4,16 @@ import nextTs from "eslint-config-next/typescript";
 import importPlugin from "eslint-plugin-import";
 import tailwind from "eslint-plugin-tailwindcss";
 import eslintConfigPrettier from "eslint-config-prettier";
+import pluginQuery from "@tanstack/eslint-plugin-query";
 
 const MAX_FILE_LINES = 350;
 
 export default defineConfig([
   ...nextVitals,
   ...nextTs,
+
+  // --- TanStack Query Configuration ---
+  ...pluginQuery.configs["flat/recommended"],
   
   // Combines Next's default ignores with your custom UI component ignores
   globalIgnores([
